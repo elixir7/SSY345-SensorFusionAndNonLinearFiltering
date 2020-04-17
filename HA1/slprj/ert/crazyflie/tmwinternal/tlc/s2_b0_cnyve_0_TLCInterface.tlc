@@ -1,0 +1,542 @@
+%implements s2_b0_cnyve_0_TLCInterface "C"
+
+%function getOutputAddr_1_0_0_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(28, 0, "")> %% rtb_Gain3_h
+
+%return "&rtb_Gain3_h"
+%endfunction
+
+%function getOutput_1_0_0_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(28, 0, "")> %% rtb_Gain3_h
+
+%return "rtb_Gain3_h"
+%endfunction
+
+%function getDWorkAddr_1_0_0_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,0, 1)>
+
+%return "&localDW->FromWorkspace_IWORK"
+%endfunction
+
+%function getDWork_1_0_0_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,0, 1)>
+
+%return "localDW->FromWorkspace_IWORK"
+%endfunction
+
+%function getDWorkAddr_1_0_0_0_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,0, 1)>
+
+%return "&localDW->FromWorkspace_PWORK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWork_1_0_0_0_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,0, 1)>
+
+%return "localDW->FromWorkspace_PWORK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getOutputAddr_1_1_0_0_1_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(29, 0, "")> %% rtb_Gain14
+
+%return "&rtb_Gain14"
+%endfunction
+
+%function getOutput_1_1_0_0_1_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(29, 0, "")> %% rtb_Gain14
+
+%return "rtb_Gain14"
+%endfunction
+
+%function getDWorkAddr_1_1_0_0_1_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,0, 1)>
+
+%return "&localDW->FromWorkspace1_IWORK"
+%endfunction
+
+%function getDWork_1_1_0_0_1_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,0, 1)>
+
+%return "localDW->FromWorkspace1_IWORK"
+%endfunction
+
+%function getDWorkAddr_1_1_0_0_1_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,0, 1)>
+
+%return "&localDW->FromWorkspace1_PWORK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWork_1_1_0_0_1_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,0, 1)>
+
+%return "localDW->FromWorkspace1_PWORK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getOutputAddr_1_2_0_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(30, 0, "")> %% rtb_Sum3
+
+%return "&rtb_Sum3"
+%endfunction
+
+%function getOutput_1_2_0_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(30, 0, "")> %% rtb_Sum3
+
+%return "rtb_Sum3"
+%endfunction
+
+%function getDWorkAddr_1_2_0_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,0, 1)>
+
+%return "&localDW->FromWorkspace2_IWORK"
+%endfunction
+
+%function getDWork_1_2_0_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,0, 1)>
+
+%return "localDW->FromWorkspace2_IWORK"
+%endfunction
+
+%function getDWorkAddr_1_2_0_0_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,0, 1)>
+
+%return "&localDW->FromWorkspace2_PWORK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWork_1_2_0_0_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,0, 1)>
+
+%return "localDW->FromWorkspace2_PWORK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getOutputAddr_1_4_0_0_3_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(30, 0, "")> %% rtb_Sum3
+
+%return "&rtb_Sum3"
+%endfunction
+
+%function getOutput_1_4_0_0_3_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(30, 0, "")> %% rtb_Sum3
+
+%return "rtb_Sum3"
+%endfunction
+
+%function getDWorkAddr_1_4_0_0_3_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,0, 1)>
+
+%return "&localDW->FromWorkspace4_IWORK"
+%endfunction
+
+%function getDWork_1_4_0_0_3_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,0, 1)>
+
+%return "localDW->FromWorkspace4_IWORK"
+%endfunction
+
+%function getDWorkAddr_1_4_0_0_3_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,0, 1)>
+
+%return "&localDW->FromWorkspace4_PWORK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWork_1_4_0_0_3_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,0, 1)>
+
+%return "localDW->FromWorkspace4_PWORK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getOutputAddr_1_5_0_0_4_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(31, 0, "")> %% rtb_Sum2_g
+
+%return "&rtb_Sum2_g"
+%endfunction
+
+%function getOutput_1_5_0_0_4_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(31, 0, "")> %% rtb_Sum2_g
+
+%return "rtb_Sum2_g"
+%endfunction
+
+%function getDWorkAddr_1_5_0_0_4_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,0, 1)>
+
+%return "&localDW->FromWorkspace3_IWORK"
+%endfunction
+
+%function getDWork_1_5_0_0_4_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,0, 1)>
+
+%return "localDW->FromWorkspace3_IWORK"
+%endfunction
+
+%function getDWorkAddr_1_5_0_0_4_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,0, 1)>
+
+%return "&localDW->FromWorkspace3_PWORK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWork_1_5_0_0_4_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,0, 1)>
+
+%return "localDW->FromWorkspace3_PWORK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getOutputAddr_1_0_0_2_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(28, 0, "")> %% rtb_Gain3_h
+
+%return "&rtb_Gain3_h"
+%endfunction
+
+%function getOutput_1_0_0_2_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(28, 0, "")> %% rtb_Gain3_h
+
+%return "rtb_Gain3_h"
+%endfunction
+
+%function getDWorkAddr_1_0_0_2_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,2, 8)>
+
+%return "&localDW->FromWorkspace_IWORK"
+%endfunction
+
+%function getDWork_1_0_0_2_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,2, 8)>
+
+%return "localDW->FromWorkspace_IWORK"
+%endfunction
+
+%function getDWorkAddr_1_0_0_2_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,2, 8)>
+
+%return "&localDW->FromWorkspace_PWORK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWork_1_0_0_2_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,2, 8)>
+
+%return "localDW->FromWorkspace_PWORK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getOutputAddr_1_1_0_2_1_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(29, 0, "")> %% rtb_Gain14
+
+%return "&rtb_Gain14"
+%endfunction
+
+%function getOutput_1_1_0_2_1_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(29, 0, "")> %% rtb_Gain14
+
+%return "rtb_Gain14"
+%endfunction
+
+%function getDWorkAddr_1_1_0_2_1_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,2, 8)>
+
+%return "&localDW->FromWorkspace1_IWORK"
+%endfunction
+
+%function getDWork_1_1_0_2_1_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,2, 8)>
+
+%return "localDW->FromWorkspace1_IWORK"
+%endfunction
+
+%function getDWorkAddr_1_1_0_2_1_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,2, 8)>
+
+%return "&localDW->FromWorkspace1_PWORK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWork_1_1_0_2_1_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,2, 8)>
+
+%return "localDW->FromWorkspace1_PWORK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getOutputAddr_1_2_0_2_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(30, 0, "")> %% rtb_Sum3
+
+%return "&rtb_Sum3"
+%endfunction
+
+%function getOutput_1_2_0_2_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(30, 0, "")> %% rtb_Sum3
+
+%return "rtb_Sum3"
+%endfunction
+
+%function getDWorkAddr_1_2_0_2_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,2, 8)>
+
+%return "&localDW->FromWorkspace2_IWORK"
+%endfunction
+
+%function getDWork_1_2_0_2_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,2, 8)>
+
+%return "localDW->FromWorkspace2_IWORK"
+%endfunction
+
+%function getDWorkAddr_1_2_0_2_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,2, 8)>
+
+%return "&localDW->FromWorkspace2_PWORK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWork_1_2_0_2_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,2, 8)>
+
+%return "localDW->FromWorkspace2_PWORK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getOutputAddr_1_4_0_2_3_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(30, 0, "")> %% rtb_Sum3
+
+%return "&rtb_Sum3"
+%endfunction
+
+%function getOutput_1_4_0_2_3_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(30, 0, "")> %% rtb_Sum3
+
+%return "rtb_Sum3"
+%endfunction
+
+%function getDWorkAddr_1_4_0_2_3_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,2, 8)>
+
+%return "&localDW->FromWorkspace4_IWORK"
+%endfunction
+
+%function getDWork_1_4_0_2_3_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,2, 8)>
+
+%return "localDW->FromWorkspace4_IWORK"
+%endfunction
+
+%function getDWorkAddr_1_4_0_2_3_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,2, 8)>
+
+%return "&localDW->FromWorkspace4_PWORK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWork_1_4_0_2_3_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,2, 8)>
+
+%return "localDW->FromWorkspace4_PWORK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getOutputAddr_1_5_0_2_4_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(31, 0, "")> %% rtb_Sum2_g
+
+%return "&rtb_Sum2_g"
+%endfunction
+
+%function getOutput_1_5_0_2_4_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(31, 0, "")> %% rtb_Sum2_g
+
+%return "rtb_Sum2_g"
+%endfunction
+
+%function getDWorkAddr_1_5_0_2_4_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,2, 8)>
+
+%return "&localDW->FromWorkspace3_IWORK"
+%endfunction
+
+%function getDWork_1_5_0_2_4_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,2, 8)>
+
+%return "localDW->FromWorkspace3_IWORK"
+%endfunction
+
+%function getDWorkAddr_1_5_0_2_4_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,2, 8)>
+
+%return "&localDW->FromWorkspace3_PWORK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWork_1_5_0_2_4_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,2, 8)>
+
+%return "localDW->FromWorkspace3_PWORK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getOutputAddr_1_0_0_4_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(28, 0, "")> %% rtb_Gain3_h
+
+%return "&rtb_Gain3_h"
+%endfunction
+
+%function getOutput_1_0_0_4_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(28, 0, "")> %% rtb_Gain3_h
+
+%return "rtb_Gain3_h"
+%endfunction
+
+%function getDWorkAddr_1_0_0_4_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,4, 1)>
+
+%return "&localDW->FromWorkspace_IWORK"
+%endfunction
+
+%function getDWork_1_0_0_4_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,4, 1)>
+
+%return "localDW->FromWorkspace_IWORK"
+%endfunction
+
+%function getDWorkAddr_1_0_0_4_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,4, 1)>
+
+%return "&localDW->FromWorkspace_PWORK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWork_1_0_0_4_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,4, 1)>
+
+%return "localDW->FromWorkspace_PWORK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getOutputAddr_1_1_0_4_1_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(29, 0, "")> %% rtb_Gain14
+
+%return "&rtb_Gain14"
+%endfunction
+
+%function getOutput_1_1_0_4_1_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(29, 0, "")> %% rtb_Gain14
+
+%return "rtb_Gain14"
+%endfunction
+
+%function getDWorkAddr_1_1_0_4_1_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,4, 1)>
+
+%return "&localDW->FromWorkspace1_IWORK"
+%endfunction
+
+%function getDWork_1_1_0_4_1_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,4, 1)>
+
+%return "localDW->FromWorkspace1_IWORK"
+%endfunction
+
+%function getDWorkAddr_1_1_0_4_1_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,4, 1)>
+
+%return "&localDW->FromWorkspace1_PWORK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWork_1_1_0_4_1_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,4, 1)>
+
+%return "localDW->FromWorkspace1_PWORK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getOutputAddr_1_2_0_4_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(30, 0, "")> %% rtb_Sum3
+
+%return "&rtb_Sum3"
+%endfunction
+
+%function getOutput_1_2_0_4_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(30, 0, "")> %% rtb_Sum3
+
+%return "rtb_Sum3"
+%endfunction
+
+%function getDWorkAddr_1_2_0_4_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,4, 1)>
+
+%return "&localDW->FromWorkspace2_IWORK"
+%endfunction
+
+%function getDWork_1_2_0_4_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,4, 1)>
+
+%return "localDW->FromWorkspace2_IWORK"
+%endfunction
+
+%function getDWorkAddr_1_2_0_4_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,4, 1)>
+
+%return "&localDW->FromWorkspace2_PWORK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWork_1_2_0_4_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,4, 1)>
+
+%return "localDW->FromWorkspace2_PWORK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getOutputAddr_1_4_0_4_3_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(30, 0, "")> %% rtb_Sum3
+
+%return "&rtb_Sum3"
+%endfunction
+
+%function getOutput_1_4_0_4_3_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(30, 0, "")> %% rtb_Sum3
+
+%return "rtb_Sum3"
+%endfunction
+
+%function getDWorkAddr_1_4_0_4_3_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,4, 1)>
+
+%return "&localDW->FromWorkspace4_IWORK"
+%endfunction
+
+%function getDWork_1_4_0_4_3_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,4, 1)>
+
+%return "localDW->FromWorkspace4_IWORK"
+%endfunction
+
+%function getDWorkAddr_1_4_0_4_3_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,4, 1)>
+
+%return "&localDW->FromWorkspace4_PWORK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWork_1_4_0_4_3_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,4, 1)>
+
+%return "localDW->FromWorkspace4_PWORK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getOutputAddr_1_5_0_4_4_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(31, 0, "")> %% rtb_Sum2_g
+
+%return "&rtb_Sum2_g"
+%endfunction
+
+%function getOutput_1_5_0_4_4_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(31, 0, "")> %% rtb_Sum2_g
+
+%return "rtb_Sum2_g"
+%endfunction
+
+%function getDWorkAddr_1_5_0_4_4_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,4, 1)>
+
+%return "&localDW->FromWorkspace3_IWORK"
+%endfunction
+
+%function getDWork_1_5_0_4_4_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,4, 1)>
+
+%return "localDW->FromWorkspace3_IWORK"
+%endfunction
+
+%function getDWorkAddr_1_5_0_4_4_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,4, 1)>
+
+%return "&localDW->FromWorkspace3_PWORK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWork_1_5_0_4_4_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCG_AccessArg(0 ,4, 1)>
+
+%return "localDW->FromWorkspace3_PWORK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+

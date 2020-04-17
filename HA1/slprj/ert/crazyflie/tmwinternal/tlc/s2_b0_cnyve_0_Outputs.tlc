@@ -1,0 +1,240 @@
+%implements s2_b0_cnyve_0_Outputs "C"
+
+%function Outputs(block, system) Output
+%<SLibCGIRAccessLocalVar(31, 0, "")> %% rtb_Sum2_g
+%<SLibCGIRAccessLocalVar(30, 0, "")> %% rtb_Sum3
+%<SLibCGIRAccessLocalVar(29, 0, "")> %% rtb_Gain14
+%<SLibCGIRAccessLocalVar(28, 0, "")> %% rtb_Gain3_h
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%openfile localVarDecl
+
+real_T rtb_Switch_idx_0;
+real_T rtb_Switch_idx_1;
+real_T rtb_Switch_idx_2;
+real_T rtb_Switch_idx_3;
+%closefile localVarDecl
+%assign tlcOutputsFcnOfS1B0 = OpaqueTLCBlockFcn("Outputs", 1, 0, 0, 2, 0)
+%assign tlcOutputsFcnOfS1B1 = OpaqueTLCBlockFcn("Outputs", 1, 1, 0, 2, 1)
+%assign tlcOutputsFcnOfS1B2 = OpaqueTLCBlockFcn("Outputs", 1, 2, 0, 2, 2)
+%assign tlcOutputsFcnOfS1B4 = OpaqueTLCBlockFcn("Outputs", 1, 4, 0, 2, 3)
+%assign tlcOutputsFcnOfS1B5 = OpaqueTLCBlockFcn("Outputs", 1, 5, 0, 2, 4)
+%if !WHITE_SPACE(tlcOutputsFcnOfS1B0)
+/* {S!d12}FromWorkspace: '<Root>/From Workspace' */
+%<tlcOutputsFcnOfS1B0>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS1B1)
+/* {S!d14}FromWorkspace: '<Root>/From Workspace1' */
+%<tlcOutputsFcnOfS1B1>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS1B2)
+/* {S!d16}FromWorkspace: '<Root>/From Workspace2' */
+%<tlcOutputsFcnOfS1B2>\
+%endif
+/* {S!d18}Sum: '<S3>/Sum of Elements' incorporates:
+ *  Math: '<S3>/Math Function'
+ *  SignalConversion generated from: '<S3>/Math Function'
+ */
+/*@>66f2*/rtb_Sum2_g/*@>df4*/ = (/*@>7640*/rtb_Gain3_h/*@>763e*/ * /*@>7642*/rtb_Gain3_h/*@>7402*/ + /*@>7647*/rtb_Gain14/*@>7645*/ * /*@>7649*/rtb_Gain14)/*@>7401*/ + /*@>764e*/rtb_Sum3/*@>7407*/ * /*@>7653*/rtb_Sum3;
+/* {S!d20}Math: '<S3>/Math Function1'
+ *
+ * About '<S3>/Math Function1':
+ *  Operator: sqrt
+ */
+/*@>78e7*/if (/*@>6777*/rtb_Sum2_g/*@>1135*/ < /*@>6755*/0.0) {
+    /*@>78eb*/rtb_Sum2_g/*@>78ea*/ = -/*@<6999*//*@>8a7b*/sqrt(/*@>8a79*/fabs(/*@>6779*/rtb_Sum2_g));
+} else {
+    /*@>67b9*/rtb_Sum2_g/*@>6016*/ = /*@>8a77*/sqrt(/*@>677b*/rtb_Sum2_g);
+}
+/* {E!d20}End of Math: '<S3>/Math Function1' */
+
+/* {S!d22}Switch: '<S3>/Switch' incorporates:
+ *  Constant: '<S3>/Constant'
+ *  Product: '<S3>/Product'
+ */
+/*@>102d*/if (/*@>674a*/rtb_Sum2_g/*@>101f*/ > /*@>67ad*/0.0) {
+    /*@>67ee*/rtb_Switch_idx_0/*@>4873*/ = /*@>67a5*/rtb_Gain3_h;
+    /*@>67f0*/rtb_Switch_idx_1/*@>487c*/ = /*@>67a7*/rtb_Gain14;
+    /*@>67f2*/rtb_Switch_idx_2/*@>4885*/ = /*@>67a9*/rtb_Sum3;
+    /*@>67f4*/rtb_Switch_idx_3/*@>488e*/ = /*@>67ab*/rtb_Sum2_g;
+} else {
+    /*@>6818*/rtb_Switch_idx_0/*@>60dc*/ = /*@>67dd*/0.0;
+    /*@>681a*/rtb_Switch_idx_1/*@>60e5*/ = /*@>67de*/0.0;
+    /*@>681c*/rtb_Switch_idx_2/*@>60ee*/ = /*@>67df*/0.0;
+    /*@>67f6*/rtb_Switch_idx_3/*@>48b6*/ = /*@>67ae*/1.0;
+}
+/* {E!d22}End of Switch: '<S3>/Switch' */
+
+/* {S!d24}Product: '<S3>/Divide' */
+/*@>6824*/rtb_Switch_idx_1/*@>ad24*/ /= /*@>6828*/rtb_Switch_idx_3;
+/*@>682a*/rtb_Switch_idx_2/*@>ad25*/ /= /*@>682e*/rtb_Switch_idx_3;
+/* {S!d26}Gain: '<S1>/Gain' incorporates:
+ *  Product: '<S3>/Divide'
+ */
+/*@>66f4*/rtb_Sum2_g/*@>e12*/ = -/*@<698c*/(/*@>7350*/rtb_Switch_idx_0/*@>734e*/ / /*@>7352*/rtb_Switch_idx_3);
+/* {S!d28}Math: '<S1>/Square' */
+/*@>66f6*/rtb_Sum3/*@>e17*/ = /*@>67fa*/rtb_Switch_idx_1/*@>698a*/ * /*@>67fc*/rtb_Switch_idx_1;
+/* {S!d30}Math: '<S1>/Square1' */
+/*@>66f8*/rtb_Gain14/*@>e1c*/ = /*@>67fe*/rtb_Switch_idx_2/*@>6986*/ * /*@>6800*/rtb_Switch_idx_2;
+/* {S!d32}Sum: '<S1>/Sum' */
+/*@>675b*/rtb_Sum3/*@>ad26*/ += /*@>66fc*/rtb_Gain14;
+/* {S!d34}Sqrt: '<S1>/Sqrt' */
+/*@>6700*/rtb_Sum3/*@>e25*/ = /*@>8a7d*/sqrt(/*@>66fe*/rtb_Sum3);
+/* {S!d36}Trigonometry: '<S1>/Atan1' */
+/*@>6bdd*/rtb_Switch_idx_0/*@>6bdf*/ = /*@>6702*/rtb_Sum2_g;
+/*@>6be6*/rtb_Switch_idx_3/*@>6be8*/ = /*@>6704*/rtb_Sum3;
+/* {S!d38}Trigonometry: '<S1>/Atan2' */
+/*@>6c2d*/rtb_Sum2_g/*@>6c28*/ = /*@>8a7f*/atan2(/*@>7301*/rtb_Switch_idx_1, /*@>7303*/rtb_Switch_idx_2);
+if (%<(SLibCGIRIsSampleHit(1, 1))>) {
+    /* {S!d40}Delay: '<S1>/Delay One Step' */
+    /*@>988b*/localDW->/*@>ae57*/DelayOneStep/*@>103e*/ = /*@>9892*/localDW->/*@>ae5a*/DelayOneStep_DSTATE;
+    /* {S!d42}Delay: '<S1>/Delay One Step1' */
+    /*@>98a7*/localDW->/*@>ae5d*/DelayOneStep1/*@>104f*/ = /*@>98ae*/localDW->/*@>ae60*/DelayOneStep1_DSTATE;
+}
+%if !WHITE_SPACE(tlcOutputsFcnOfS1B4)
+/* {S!d44}FromWorkspace: '<Root>/From Workspace4' */
+%<tlcOutputsFcnOfS1B4>\
+%endif
+/* {S!d46}Gain: '<S1>/Gain4' */
+/*@>671e*/rtb_Switch_idx_1/*@>e63*/ = /*@>67af*/0.16666666666666674/*@>6982*/ * /*@>671c*/rtb_Sum2_g;
+%if !WHITE_SPACE(tlcOutputsFcnOfS1B5)
+/* {S!d48}FromWorkspace: '<Root>/From Workspace3' */
+%<tlcOutputsFcnOfS1B5>\
+%endif
+/* {S!d50}Sum: '<S1>/Sum1' incorporates:
+ *  Gain: '<S1>/Gain1'
+ *  Gain: '<S1>/Gain2'
+ *  Gain: '<S1>/Gain3'
+ *  Gain: '<S1>/Gain8'
+ *  Sum: '<S1>/Sum2'
+ *  Trigonometry: '<S1>/Atan1'
+ */
+/*@>98c3*/localDW->/*@>ae63*/pitch_hat/*@>11a6*/ = (/*@>67b3*/0.017453292519943295/*@>697e*/ * /*@>679b*/rtb_Sum3/*@>697a*/ * /*@>67b2*/0.01/*@>3812*/ + /*@>98ca*/localDW->/*@>ae66*/DelayOneStep)/*@>6976*/ * /*@>67b1*/0.83333333333333326/*@>11a3*/ + /*@>67b0*/0.16666666666666674/*@>6972*/ * /*@>8a87*/atan2(/*@>7370*/rtb_Switch_idx_0, /*@>7372*/rtb_Switch_idx_3);
+/* {S!d52}Sum: '<S1>/Sum3' incorporates:
+ *  Gain: '<S1>/Gain5'
+ *  Gain: '<S1>/Gain6'
+ *  Gain: '<S1>/Gain7'
+ *  Sum: '<S1>/Sum4'
+ */
+/*@>98d1*/localDW->/*@>ae69*/roll_hat/*@>11ab*/ = (/*@>67b6*/0.017453292519943295/*@>696e*/ * /*@>679d*/rtb_Sum2_g/*@>696a*/ * /*@>67b5*/0.01/*@>381c*/ + /*@>98d8*/localDW->/*@>ae6c*/DelayOneStep1)/*@>6966*/ * /*@>67b4*/0.83333333333333326/*@>11a8*/ + /*@>6730*/rtb_Switch_idx_1;
+/* {S!d54}Gain: '<Root>/Gain13' incorporates:
+ *  Sum: '<Root>/Sum8'
+ */
+/*@>6732*/rtb_Sum2_g/*@>e98*/ = (*/*@<ad52*/rtu_Ref_Roll/*@>37a8*/ - /*@>98df*/localDW->/*@>ae6f*/roll_hat)/*@>6962*/ * /*@>67b7*/10000.0;
+/* {S!d56}Gain: '<Root>/Gain1' */
+/*@>6736*/rtb_Sum3/*@>ea0*/ = -/*@<695f*//*@>6734*/rtb_Sum2_g;
+/* {S!d58}Gain: '<Root>/Gain14' incorporates:
+ *  Sum: '<Root>/Sum9'
+ */
+/*@>6738*/rtb_Gain14/*@>ead*/ = (*/*@<ad54*/rtu_Ref_Pitch/*@>37af*/ - /*@>98e6*/localDW->/*@>ae72*/pitch_hat)/*@>695d*/ * /*@>67b8*/10000.0;
+/* {S!d60}Gain: '<Root>/Gain3' */
+/*@>673c*/rtb_Gain3_h/*@>eb5*/ = -/*@<695a*//*@>673a*/rtb_Gain14;
+/* {S!d62}Sum: '<Root>/Sum4' */
+/*@>6761*/rtb_Switch_idx_0/*@>11ba*/ = /*@>673e*/rtb_Sum3/*@>11b7*/ + /*@>6740*/rtb_Gain3_h;
+/* {S!d64}Sum: '<Root>/Sum6' */
+/*@>6763*/rtb_Switch_idx_1/*@>11c4*/ = /*@>6742*/rtb_Gain14/*@>11c1*/ + /*@>6744*/rtb_Sum2_g;
+/* {S!d66}Sum: '<Root>/Sum2' incorporates:
+ *  Sum: '<Root>/Sum7'
+ */
+/*@>6765*/rtb_Sum2_g/*@>11d3*/ = (/*@>6787*/rtb_Gain3_h/*@>37c4*/ + /*@>6789*/rtb_Sum2_g)/*@>11d0*/ + */*@<ad3e*/rtu_Base_Thrust;
+/* {S!d68}Sum: '<Root>/Sum3' incorporates:
+ *  Sum: '<Root>/Sum5'
+ */
+/*@>6767*/rtb_Sum3/*@>11dd*/ = (/*@>678b*/rtb_Sum3/*@>37cb*/ + /*@>678d*/rtb_Gain14)/*@>11da*/ + */*@<ad3f*/rtu_Base_Thrust;
+/* {S!d70}DataTypeConversion: '<Root>/ToUint16' incorporates:
+ *  Sum: '<Root>/Sum'
+ */
+/*@>692d*/rtb_Switch_idx_0/*@>ad27*/ += */*@<ad5a*/rtu_Base_Thrust;
+/*@>78ec*/if (/*@>737e*/rtb_Switch_idx_0/*@>737c*/ < /*@>737f*/65536.0) {
+    /*@>7904*/if (/*@>7383*/rtb_Switch_idx_0/*@>7381*/ >= /*@>7384*/0.0) {
+        *rty_Motor_1/*@>7907*/ = /*@>7385*/(uint16_T)/*@>7387*/rtb_Switch_idx_0;
+    } else {
+        *rty_Motor_1/*@>78ef*/ = /*@>ad0c*/0U;
+    }
+} else {
+    *rty_Motor_1/*@>ee0*/ = /*@>7389*/MAX_uint16_T;
+}
+/* {E!d70}End of DataTypeConversion: '<Root>/ToUint16' */
+
+/* {S!d72}DataTypeConversion: '<Root>/ToUint16_1' */
+/*@>78f2*/if (/*@>7422*/rtb_Sum3/*@>739c*/ < /*@>739f*/65536.0) {
+    /*@>790a*/if (/*@>7427*/rtb_Sum3/*@>73a1*/ >= /*@>73a4*/0.0) {
+        *rty_Motor_2/*@>790d*/ = /*@>73a5*/(uint16_T)/*@>742c*/rtb_Sum3;
+    } else {
+        *rty_Motor_2/*@>78f5*/ = /*@>ad0f*/0U;
+    }
+} else {
+    *rty_Motor_2/*@>ee3*/ = /*@>73a9*/MAX_uint16_T;
+}
+/* {E!d72}End of DataTypeConversion: '<Root>/ToUint16_1' */
+
+/* {S!d74}DataTypeConversion: '<Root>/ToUint16_2' incorporates:
+ *  Sum: '<Root>/Sum1'
+ */
+/*@>68cd*/rtb_Switch_idx_0/*@>68cf*/ = */*@<ad5b*/rtu_Base_Thrust/*@>37d9*/ + /*@>6795*/rtb_Switch_idx_1;
+/*@>78f8*/if (/*@>73b5*/rtb_Switch_idx_0/*@>73b3*/ < /*@>73b6*/65536.0) {
+    /*@>7910*/if (/*@>73ba*/rtb_Switch_idx_0/*@>73b8*/ >= /*@>73bb*/0.0) {
+        *rty_Motor_3/*@>7913*/ = /*@>73bc*/(uint16_T)/*@>73be*/rtb_Switch_idx_0;
+    } else {
+        *rty_Motor_3/*@>78fb*/ = /*@>ad12*/0U;
+    }
+} else {
+    *rty_Motor_3/*@>ee6*/ = /*@>73c0*/MAX_uint16_T;
+}
+/* {E!d74}End of DataTypeConversion: '<Root>/ToUint16_2' */
+
+/* {S!d76}DataTypeConversion: '<Root>/ToUint16_3' */
+/*@>78fe*/if (/*@>7437*/rtb_Sum2_g/*@>73d3*/ < /*@>73d6*/65536.0) {
+    /*@>7916*/if (/*@>743c*/rtb_Sum2_g/*@>73d8*/ >= /*@>73db*/0.0) {
+        *rty_Motor_4/*@>7919*/ = /*@>73dc*/(uint16_T)/*@>7441*/rtb_Sum2_g;
+    } else {
+        *rty_Motor_4/*@>7901*/ = /*@>ad15*/0U;
+    }
+} else {
+    *rty_Motor_4/*@>ee9*/ = /*@>73e0*/MAX_uint16_T;
+}
+/* {E!d76}End of DataTypeConversion: '<Root>/ToUint16_3' */
+%closefile cfgTxt
+%<cfgTxt>
+%assign rtmArgSys = ::CompiledModel.System[::CompiledModel.System[::CompiledModel.RTWCGModules.RTWCGModule[0].CGSystemIdx].NonInlinedParentSystemIdx]
+%if SysFcnArgNeeded("Output", rtmArgSys.Interface.RTMArgDef, rtmArgSys.CurrentTID, FcnSysModuleIsRateGrouping(rtmArgSys, "Output"))
+%<SLibCG_AccessArg(0, 2, 0)>
+%endif
+%if SLibCG_ArgAccessed(0, 2, 0)
+%<SLibAccessArg(rtmArgSys.Interface.RTMArgDef, "Output", rtmArgSys.CurrentTID, FcnSysModuleIsRateGrouping(rtmArgSys, "Output"))>
+%endif
+%if (IsModelReferenceBaseSys(rtmArgSys) && (IsModelRefScalableBuild() || GenerateClassInterface)) ||...
+(GenerateClassInterface && SLibIsMultiInstanceServer(rtmArgSys))
+%<SLibCG_UndoAccessArg(0, 2, 0)>
+%endif
+%<LibSetSystemField(system, "CachedOutputLocalVars", localVarDecl)>
+%endfunction
+%function OutputsFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void crazyflie(\
+%assign comma = ""
+%if SLibCG_ArgAccessed(0, 2, 0)
+%<comma>%<::tSimStructType> * const %<::tSimStruct>\
+%assign comma = ", "
+%endif
+%<comma>const real_T *rtu_Base_Thrust\
+%assign comma = ", "
+%<comma>const real_T *rtu_Ref_Roll\
+%assign comma = ", "
+%<comma>const real_T *rtu_Ref_Pitch\
+%assign comma = ", "
+%<comma>uint16_T *rty_Motor_1\
+%assign comma = ", "
+%<comma>uint16_T *rty_Motor_2\
+%assign comma = ", "
+%<comma>uint16_T *rty_Motor_3\
+%assign comma = ", "
+%<comma>uint16_T *rty_Motor_4\
+%assign comma = ", "
+%<comma>DW_crazyflie_f_T *localDW\
+%assign comma = ", "
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 2, fcnProtoType)>
+%endfunction

@@ -1,0 +1,61 @@
+%implements s2_b0_cnyve_0_Start "C"
+
+%function Start(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%assign tlcStartFcnOfS1B0 = OpaqueTLCBlockFcn("Start", 1, 0, 0, 0, 0)
+%assign tlcStartFcnOfS1B1 = OpaqueTLCBlockFcn("Start", 1, 1, 0, 0, 1)
+%assign tlcStartFcnOfS1B2 = OpaqueTLCBlockFcn("Start", 1, 2, 0, 0, 2)
+%assign tlcStartFcnOfS1B4 = OpaqueTLCBlockFcn("Start", 1, 4, 0, 0, 3)
+%assign tlcStartFcnOfS1B5 = OpaqueTLCBlockFcn("Start", 1, 5, 0, 0, 4)
+%if !WHITE_SPACE(tlcStartFcnOfS1B0)
+/* Start for FromWorkspace: '<Root>/From Workspace' */
+%<tlcStartFcnOfS1B0>\
+%endif
+%if !WHITE_SPACE(tlcStartFcnOfS1B1)
+/* Start for FromWorkspace: '<Root>/From Workspace1' */
+%<tlcStartFcnOfS1B1>\
+%endif
+%if !WHITE_SPACE(tlcStartFcnOfS1B2)
+/* Start for FromWorkspace: '<Root>/From Workspace2' */
+%<tlcStartFcnOfS1B2>\
+%endif
+%if !WHITE_SPACE(tlcStartFcnOfS1B4)
+/* Start for FromWorkspace: '<Root>/From Workspace4' */
+%<tlcStartFcnOfS1B4>\
+%endif
+%if !WHITE_SPACE(tlcStartFcnOfS1B5)
+/* Start for FromWorkspace: '<Root>/From Workspace3' */
+%<tlcStartFcnOfS1B5>\
+%endif
+%closefile cfgTxt
+%<cfgTxt>
+%assign rtmArgSys = ::CompiledModel.System[::CompiledModel.System[::CompiledModel.RTWCGModules.RTWCGModule[0].CGSystemIdx].NonInlinedParentSystemIdx]
+%if SysFcnArgNeeded("Start", rtmArgSys.Interface.RTMArgDef, rtmArgSys.CurrentTID, FcnSysModuleIsRateGrouping(rtmArgSys, "Start"))
+%<SLibCG_AccessArg(0, 0, 0)>
+%endif
+%if SLibCG_ArgAccessed(0, 0, 0)
+%<SLibAccessArg(rtmArgSys.Interface.RTMArgDef, "Start", rtmArgSys.CurrentTID, FcnSysModuleIsRateGrouping(rtmArgSys, "Start"))>
+%endif
+%if (IsModelReferenceBaseSys(rtmArgSys) && (IsModelRefScalableBuild() || GenerateClassInterface)) ||...
+(GenerateClassInterface && SLibIsMultiInstanceServer(rtmArgSys))
+%<SLibCG_UndoAccessArg(0, 0, 0)>
+%endif
+%endfunction
+%function StartFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void crazyflie_Start(\
+%assign comma = ""
+%if SLibCG_ArgAccessed(0, 0, 0)
+%<comma>%<::tSimStructType> * const %<::tSimStruct>\
+%assign comma = ", "
+%endif
+%if SLibCG_ArgAccessed(0, 0, 1)
+%<comma>DW_crazyflie_f_T *localDW\
+%assign comma = ", "
+%endif
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 0, fcnProtoType)>
+%endfunction

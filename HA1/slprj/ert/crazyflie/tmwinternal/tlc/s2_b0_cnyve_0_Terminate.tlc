@@ -1,0 +1,61 @@
+%implements s2_b0_cnyve_0_Terminate "C"
+
+%function Terminate(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%assign tlcTerminateFcnOfS1B0 = OpaqueTLCBlockFcn("Terminate", 1, 0, 0, 4, 0)
+%assign tlcTerminateFcnOfS1B1 = OpaqueTLCBlockFcn("Terminate", 1, 1, 0, 4, 1)
+%assign tlcTerminateFcnOfS1B2 = OpaqueTLCBlockFcn("Terminate", 1, 2, 0, 4, 2)
+%assign tlcTerminateFcnOfS1B4 = OpaqueTLCBlockFcn("Terminate", 1, 4, 0, 4, 3)
+%assign tlcTerminateFcnOfS1B5 = OpaqueTLCBlockFcn("Terminate", 1, 5, 0, 4, 4)
+%if !WHITE_SPACE(tlcTerminateFcnOfS1B0)
+/* Terminate for FromWorkspace: '<Root>/From Workspace' */
+%<tlcTerminateFcnOfS1B0>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS1B1)
+/* Terminate for FromWorkspace: '<Root>/From Workspace1' */
+%<tlcTerminateFcnOfS1B1>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS1B2)
+/* Terminate for FromWorkspace: '<Root>/From Workspace2' */
+%<tlcTerminateFcnOfS1B2>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS1B4)
+/* Terminate for FromWorkspace: '<Root>/From Workspace4' */
+%<tlcTerminateFcnOfS1B4>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS1B5)
+/* Terminate for FromWorkspace: '<Root>/From Workspace3' */
+%<tlcTerminateFcnOfS1B5>\
+%endif
+%closefile cfgTxt
+%<cfgTxt>
+%assign rtmArgSys = ::CompiledModel.System[::CompiledModel.System[::CompiledModel.RTWCGModules.RTWCGModule[0].CGSystemIdx].NonInlinedParentSystemIdx]
+%if SysFcnArgNeeded("Terminate", rtmArgSys.Interface.RTMArgDef, rtmArgSys.CurrentTID, FcnSysModuleIsRateGrouping(rtmArgSys, "Terminate"))
+%<SLibCG_AccessArg(0, 4, 0)>
+%endif
+%if SLibCG_ArgAccessed(0, 4, 0)
+%<SLibAccessArg(rtmArgSys.Interface.RTMArgDef, "Terminate", rtmArgSys.CurrentTID, FcnSysModuleIsRateGrouping(rtmArgSys, "Terminate"))>
+%endif
+%if (IsModelReferenceBaseSys(rtmArgSys) && (IsModelRefScalableBuild() || GenerateClassInterface)) ||...
+(GenerateClassInterface && SLibIsMultiInstanceServer(rtmArgSys))
+%<SLibCG_UndoAccessArg(0, 4, 0)>
+%endif
+%endfunction
+%function TerminateFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void crazyflie_Term(\
+%assign comma = ""
+%if SLibCG_ArgAccessed(0, 4, 0)
+%<comma>%<::tSimStructType> * const %<::tSimStruct>\
+%assign comma = ", "
+%endif
+%if SLibCG_ArgAccessed(0, 4, 1)
+%<comma>DW_crazyflie_f_T *localDW\
+%assign comma = ", "
+%endif
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 4, fcnProtoType)>
+%endfunction
