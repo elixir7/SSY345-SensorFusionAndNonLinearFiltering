@@ -1,7 +1,9 @@
-%% Home Assignment 2 Analysis
+%% HA2 Analysis
+
+%% 1 A first Kalman filter and its properties
+%% 1a
 clear; clc; close all;
 rng(970926)
-%% A first Kalman filter and its properties
 % Process model
 A = 1;
 Q = 1.5;
@@ -14,7 +16,6 @@ R = 2.5;
 mu = 2;
 P_0 = 6;
 
-%% 1a
 N = 20;
 
 X = genLinearStateSequence(mu, P_0, A, Q, N);
@@ -170,7 +171,6 @@ xlabel('Sample (k)');
 ylabel('State value');
 
 %% 2 Kalman filter and its tuning
-
 %% 2a
 
 T = 0.01;
