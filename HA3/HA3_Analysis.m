@@ -87,9 +87,9 @@ plot(s1.xy_ekf(1,:), s1.xy_ekf(2,:), 'm');
 plot(s1.xy_ukf(1,:), s1.xy_ukf(2,:), 'g');
 plot(s1.xy_ckf(1,:), s1.xy_ckf(2,:), 'r');
 
-title('Estimation method comparison');
-xlabel('x');
-ylabel('y');
+title('Estimation method comparison 1');
+xlabel('y1');
+ylabel('y2');
 
 test = {'Samples', '$\hat{\mu}_{mc}$', '$\hat{\mu}_{ekf}$', '$\hat{\mu}_{ukf}$', ...
     '$\hat{\mu}_{ckf}$', '$3\sigma_{mc}$', '$3\sigma_{ekf}$', '$3\sigma_{ukf}$', ...
@@ -113,9 +113,9 @@ plot(s2.xy_ekf(1,:), s2.xy_ekf(2,:), 'm');
 plot(s2.xy_ukf(1,:), s2.xy_ukf(2,:), 'g');
 plot(s2.xy_ckf(1,:), s2.xy_ckf(2,:), 'r');
 
-title('Estimation method comparison');
-xlabel('x');
-ylabel('y');
+title('Estimation method comparison 2');
+xlabel('y1');
+ylabel('y2');
 
 test = {'Samples', '$\hat{\mu}_{mc}$', '$\hat{\mu}_{ekf}$', '$\hat{\mu}_{ukf}$', ...
     '$\hat{\mu}_{ckf}$', '$3\sigma_{mc}$', '$3\sigma_{ekf}$', '$3\sigma_{ukf}$', ...
@@ -125,7 +125,10 @@ legend(test{:}, 'Interpreter','latex', 'FontSize', 12)
 
 %% 2 Non-linear Kalman filtering
 %% a & b
-rng(970926)
+%4900
+%4956
+% 4960
+rng(654645)
 x0 = [0 0 14 0 0]';
 P0 = diag([10 10 2 (pi/180) (5*pi/180)].^2);
 
@@ -160,10 +163,6 @@ for i = 1:2
     n = 1;
     for type = ["EKF", "UKF", "CKF"]
         figure(n + (i-1)*3); clf; hold on; grid on;
-        
-        %Sensors
-        plot(s1(1),s1(2), 'om');
-        plot(s2(1),s2(2), 'om');
 
         % True state
         plot(x(1,:), x(2,:), 'b', 'LineWidth', 2);
@@ -174,6 +173,10 @@ for i = 1:2
         % Filter
         [xf, Pf] = nonLinearKalmanFilter(y.samples, x0, P0, f, Q, h, R, type);
         plot(xf(1,:), xf(2,:), '--r', 'LineWidth', 2);
+        
+        %Sensors
+        plot([s1(1) s2(1)],[s1(2) s2(2)], 'om');
+        %plot(s2(1),s2(2), 'om');
 
         % 3 Sigma curves
         for k = 1:5:N
@@ -181,8 +184,10 @@ for i = 1:2
             plot(xy(1,:), xy(2,:),  'Color', '#4DBEEE');
         end
 
-       legend('Sensor 1', 'Sensor 2', 'True state', 'Measurements', type, '$3\sigma$ level curve', 'Interpreter', 'latex');
-
+       legend('True state', 'Measurements', type, 'Sensors', '$3\sigma$ level curve', 'Interpreter', 'latex');
+        title("Case " + i + " with " + type)
+        xlabel("x")
+        ylabel("y")
         n = n + 1;
     end
     
@@ -290,7 +295,7 @@ y = genNonLinearMeasurementSequence(x, h, R);
 figure(1); clf;
 n = 1;
 for i = 1:3
-    for k = [0.001 0.01 0.1 1 10 100 1000]
+    for k = [0.01 1 100]
         % Process noise is not known and hence tuned
         if(i == 1)  
             Q = diag([0 0 k*1 0 pi/180].^2);
@@ -300,11 +305,11 @@ for i = 1:3
             v_k = 1; w_k = k;
         else
            Q = diag([0 0 k*1 0 k*pi/180].^2); 
-           phi_v_k1_k = k; w_k = k;
+           v_k = k; w_k = k;
         end
         [xf, Pf] = nonLinearKalmanFilter(y, x0, P0, f, Q, h, R, type);
         
-        subplot(3,7, n); hold on; grid on; n = n + 1;
+        subplot(3,3, n); hold on; grid on; n = n + 1;
         % True state
         plot(x(1,:), x(2,:), '-b', 'LineWidth', 2)
         % Measurement
@@ -321,13 +326,14 @@ end
 %%
 % Manual tuning
 figure(2); clf; hold on
-k1 = 0;
+k1 = 0.1;
 k2 = 1/4;
 Q = diag([0 0 k1*1 0 k2*pi/180].^2);
 [xf, Pf] = nonLinearKalmanFilter(y, x0, P0, f, Q, h, R, type);
 plot(x(1,:), x(2,:), '-b', 'LineWidth', 2)
 plot(xf(1,:), xf(2,:), '--r', 'LineWidth', 2)
-
+title("Tuned Kalman with $" + v_k + "\sigma_{v}, " + w_k +  "\sigma_{\omega}$", 'Interpreter', 'latex');
+grid on
 %% c
 rng(666);
 type = "CKF";
@@ -345,7 +351,7 @@ for run = ["small", "large", "tuned"]
     elseif(run == "large")
        v_k = 100; w_k = 100;
     else
-       v_k = 0; w_k = 1/4;
+       v_k = 0; w_k = 1;
     end
     Q = diag([0 0 v_k*1 0 w_k*pi/180].^2);
     [xf, Pf] = nonLinearKalmanFilter(y, x0, P0, f, Q, h, R, type);
@@ -376,7 +382,7 @@ for run = ["small", "large", "tuned"]
     title("\textbf{Position filter with $" + v_k + "\sigma_{v}, " + w_k +  "\sigma_{\omega}$}", 'Interpreter', 'latex');
     xlabel("X Pos")
     ylabel("Y Pos")
-    legend('Sensors', 'True track', type + " filter", "$3\sigma$ level curve", 'Interpreter', 'latex')
+    legend('Sensors', 'True track','Measurements', type + " filter", "$3\sigma$ level curve", 'Interpreter', 'latex')
     
     n = n + 1;
 end
